@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background-color:white; 
+}
+
+header
+{
+	height: 90px;
+	background-color: red;
+	position:relative;
+}
+
+#logoDrag
+{
+	border-style: solid;
+    border-width: 1px;
+
+}
+
+#googleMap
+{
+	width: 100%;
+	height: 50vh;
+}
+
+.logoHolder
+{
+	box-sizing: border-box;
+	float: left;
+	padding: 5px 0px 0px 5px;
+	filter: invert(100%);
+	width: 15%;
+}
+
+#navClick
+{
+	font-size: 30px;
+}
+
+#logo
+{
+    cursor: pointer;
+	height: 80px;
+	width: auto;
+}
+
+nav
+{
+	top: 50%;
+	transform: translate(0, -50%);
+	left: 165px;
+	float: right;
+	position: absolute;
+}
+
+.TopNav .icon
+{
+	display: none;
+}
+
+ul 
+{
+	list-style-type: none;
+}
+
+li
+{
+	display: inline;	
+}
+
+li a
+{
+    font-family: 'Oswald', sans-serif;
+	color: white;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+li a:hover
+{
+	color: rgb(204, 204, 204);
+}
+
+h1
+{
+	font-family: 'Oswald', sans-serif;
+}
+
+h2
+{
+	font-family: 'Oswald', sans-serif;
+}
+
+p
+{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 1.15rem;
+}
+
+.articleImg
+{
+	width: 100%;
+}
+
+.galleryContainer
+{
+	position: relative;
+	left: 50%;
+}
+
+.images
+{
+	width:100%;
+	height:auto;
+	display: none;
+}
+
+
+.grid 
+{
+	width: 100%;
+	max-width: 1700px;
+	margin: 0 auto;
+}
+
+.gridArticle
+{
+	max-width: 1000px;
+}
+
+
+.row:after 
+{
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+
+[class*='col-']
+{
+	width: 100%;
+	float: left;
+	min-height: 1px;
+}
+
+.col 
+{
+	padding: 1em;
+	margin: 4px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.colArticle
+{
+	text-align: left;
+}
+	
+.modal {
+    display: none; 
+    position: fixed; 
+    padding-top: 150px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative; 
+    background-color: #fefefe;
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+}
+
+.popupVid
+{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding-top: 50px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.discographyImg
+{
+	box-shadow: 0px 0px 25px grey;
+	width:100%;
+	height:auto;
+}
+
+.homeButton
+{
+    border: none;
+	box-sizing: border-box;
+	padding: 5px;
+	margin: 10px 0px 50px 0px;
+	width: 100%;
+	background-color: red;
+    color: white;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.customButton
+{
+	margin: 10px 10px 50px 5px;
+	padding: 10px;
+	width: 240px;
+	display: inline; 
+}
+
+.purchaseButton
+{
+	width: 62%;
+}
+
+@media screen and (min-width:320px)
+{
+	.col-Mob1 {width: 8.33333%;}
+	.col-Mob2 {width: 16.66667%;}
+	.col-Mob3 {width: 25%;}
+	.col-Mob4 {width: 33.33333%;}
+	.col-Mob5 {width: 41.66667%;}
+	.col-Mob6 {width: 50%;}
+	.col-Mob7 {width: 58.33333%;}
+	.col-Mob8 {width: 66.66667%;}
+	.col-Mob9 {width: 75%;}
+	.col-Mob10 {width: 83.33333%;}
+	.col-Mob11 {width: 91.66667%;}
+	.col-Mob12 {width: 100%;}
+	
+	.popupVid
+	{
+		width: 100%;	
+		height: 200px; 
+	}
+
+}
+@media screen and (min-width: 640px)
+{
+	.col-Tab1 {width: 8.33333%;}
+	.col-Tab2 {width: 16.66667%;}
+	.col-Tab3 {width: 25%;}
+	.col-Tab4 {width: 33.33333%;}
+	.col-Tab5 {width: 41.66667%;}
+	.col-Tab6 {width: 50%;}
+	.col-Tab7 {width: 58.33333%;}
+	.col-Tab8 {width: 66.66667%;}
+	.col-Tab9 {width: 75%;}
+	.col-Tab10 {width: 83.33333%;}
+	.col-Tab11 {width: 91.66667%;}
+	.col-Tab12 {width: 100%;}
+	
+	.popupVid
+	{
+		width: 75%;
+		height: 300px; 
+	}
+
+}
+
+@media screen and (min-width:960px)
+{
+	.col-Desk1 {width: 8.33333%;}
+	.col-Desk2 {width: 16.66667%;}
+	.col-Desk3 {width: 25%;}
+	.col-Desk4 {width: 33.33333%;}
+	.col-Desk5 {width: 41.66667%;}
+	.col-Desk6 {width: 50%;}
+	.col-Desk7 {width: 58.33333%;}
+	.col-Desk8 {width: 66.66667%;}
+	.col-Desk9 {width: 75%;}
+	.col-Desk1 {width: 83.33333%;}
+	.col-Desk1 {width: 91.66667%;}
+	.col-Desk1 {width: 100%;}
+	
+	.popupVid
+	{
+		width: 50%;
+		height: 400px; 
+	}
+	
+}
+
+@media screen and (max-width: 960px) 
+{
+	.TopNav
+	{
+		top: 50%;
+		left: -10px;
+		position: relative;
+	}
+	
+	.TopNav li:not(:first-child) 
+	{
+		display: none;
+	}
+	
+	.TopNav li.icon 
+	{
+		display: block;
+	}
+	
+	.TopNav.responsive li:not(:first-child) 
+	{
+		background-color: red;
+		display: block;
+		text-align: left;
+	}
+	
+	.TopNav.responsive a:not(:first-child) 
+	{
+		float: left;
+		display: block;
+	}
+}
