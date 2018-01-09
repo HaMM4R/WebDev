@@ -47,6 +47,7 @@ function Dropdown()
 {
 	var navClick = document.getElementById("navClick");
 	var nav = document.getElementById("topNav");
+	
 	navClick.addEventListener("click", (
 	function(e)
 	{
