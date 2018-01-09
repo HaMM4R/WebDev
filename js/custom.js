@@ -138,6 +138,14 @@ function map()
 //Customiser
 function InitaliseCustomiser()
 {
+	if(localStorage.getItem("backgroundColour") === null)
+		localStorage.setItem("backgroundColour", "white");
+	if(localStorage.getItem("backgroundImg")  === null)
+		localStorage.setItem("backgroundImg", 1);
+	if(localStorage.getItem("greatestX") === null)
+		localStorage.setItem("greatestX", 0);
+	if(localStorage.getItem("greatestY") === null)
+		localStorage.setItem("greatestY", 0);
 	Dropdown();
 	SetupCanvas();
 	
@@ -334,16 +342,7 @@ function Save()
 var jsonDataX
 var jsonDataY
 function Load()
-{
-	if(localStorage.getItem("backgroundColour") === null)
-		localStorage.setItem("backgroundColour", "white");
-	if(localStorage.getItem("backgroundImg")  === null)
-		localStorage.setItem("backgroundImg", 1);
-	if(localStorage.getItem("greatestX") === null)
-		localStorage.setItem("greatestX", 0);
-	if(localStorage.getItem("greatestY") === null)
-		localStorage.setItem("greatestY", 0);
-		
+{	
 	colour.value = localStorage.getItem("backgroundColour");
 	color = localStorage.getItem("backgroundColour");
 	content.clearRect(0, 0, canvas.width, canvas.height);
