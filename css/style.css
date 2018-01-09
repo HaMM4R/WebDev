@@ -22,6 +22,12 @@ header
 
 }
 
+#googleMap
+{
+	width: 100%;
+	height: 50vh;
+}
+
 .logoHolder
 {
 	box-sizing: border-box;
@@ -50,13 +56,6 @@ nav
 	left: 165px;
 	float: right;
 	position: absolute;
-}
-
-footer
-{
-	background-color: red;
-	width: 100%;
-	height: 60px;
 }
 
 .TopNav .icon

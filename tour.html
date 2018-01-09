@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">	
+		<script src="js/custom.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7VBehqEgNH2g4sOyweF_Mw7yYIqNB9iM&callback=myMap"></script>
+	</head>
+	
+	<body onload="GetLocation()">
+		<header>
+			<div class="logoHolder">
+				<a href="index.html">
+					<img src="assets/Logo.png" id="logo"/>
+				</a>
+			</div>
+			<nav class="TopNav" id="topNav">
+				<ul>
+					<li class="icon"><a href="#open" id="navClick">&#9776;</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="discography.html">Discography</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="tour.html">Tours</a></li>
+					<li><a href="shop.html">Shop</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<div class="grid">
+				<div class="row">
+					<div class="col-Desk12">
+						<div class="col">
+							<h1>UK Arenas</h1>
+							<p>The arenas Brian will be playing are highlighted with the pink balls, your location is shown with the red marker<p>
+							<div id="googleMap" style="background:grey"></div>
+							<br>
+							<h1>Tour Dates</h1>
+							<p>LONDON O2 ARENA: 25/02/2018</p>
+							<p>NOTTINGHAM MOTORPORT ARENA: 29/02/2018</p>
+							<p>SHEFFIELD FLYDSA ARENA: 05/03/2018</p>
+							<p>LEEDS FIRST DIRECT ARENA: 07/03/2018</p>
+							<p>BIRMINGHAM ARENA: 10/03/2018</p>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

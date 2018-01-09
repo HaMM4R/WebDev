@@ -4,7 +4,7 @@ var lastX;
 var lastY;
 var hasDrawn = false; 
 var colorWell;
-var color; 
+var color = "white"; 
 
 var count = 1;
 var bgImages = new Array(); 
@@ -15,12 +15,24 @@ var imageX = [];
 var imageY = [];
 
 window.onload = function()
-{
+{	
 	SetupCanvas();
+	
+	bgImages[1] = 'assets/custom/back0.png'
+	bgImages[2] = 'assets/custom/back2.png'
+	bgImages[3] = 'assets/custom/back3.png'
+	bgImages[0] = 'assets/custom/back4.png'
+	
 	AddLogo();
 	ChooseColour();
-	
+		
 	Load();
+	
+	$('.customButton').click(function(e)
+	{
+		var id = $(this).data('id');
+		ChooseBackground(id);
+	});
 }
 
 function SetupCanvas()
@@ -94,12 +106,6 @@ function AddLogo()
 
 function ChooseBackground(num)
 {
-	bgImages[1] = 'assets/custom/back0.png'
-	bgImages[0] = 'assets/custom/back1.png'
-	bgImages[2] = 'assets/custom/back2.png'
-	bgImages[3] = 'assets/custom/back3.png'
-	bgImages[4] = 'assets/custom/back4.png'
-	
 	if(num != 2)
 	{
 		if(num === 0)
@@ -175,14 +181,10 @@ function Redraw()
 	
 	for(var i = 0; i < imageX.length; i++)
 	{
-		img = new Image();
+		var img = new Image();
 		img.src = "assets/drop1.png";
 		
 		content.drawImage(img,imageX[i]-1,imageY[i]);
-		img.onload = function()
-		{
-			content.drawImage(img,imageX[i]-1,imageY[i]);
-		}
 	}
 	
 	base_image = new Image();
@@ -201,23 +203,44 @@ function Save()
 	{
 		localStorage.setItem("backgroundColour", color);
 		localStorage.setItem("backgroundImg", count);
+		localStorage.setItem("greatestX", JSON.stringify(imageX));
+		localStorage.setItem("greatestY", JSON.stringify(imageY));
 	}
 }
 
+var jsonDataX
+var jsonDataY
 function Load()
 {
 	colour.value = localStorage.getItem("backgroundColour");
+	color = localStorage.getItem("backgroundColour");
 	content.clearRect(0, 0, canvas.width, canvas.height);
 	content.beginPath();
 	content.rect(0, 0, 500, 500);
 	content.fillStyle = localStorage.getItem("backgroundColour");
 	content.fill();
+	count = localStorage.getItem("backgroundImg");
 	
-	bgImage = new Image();
-	alert(localStorage.getItem("backgroundImg"));
-	bgImage.src = bgImages[localStorage.getItem("backgroundImg")];
-	bgImage.onload = function()
+	if(count != 1)
 	{
-		content.drawImage(bgImage, 0, 0);
-	}	
+		bgImage = new Image();
+		bgImage.src = bgImages[localStorage.getItem("backgroundImg")];
+		bgImage.onload = function()
+		{
+			content.drawImage(bgImage, 0, 0);
+		}	
+	}
+	
+	jsonDataX = JSON.parse(localStorage.getItem("greatestX"));
+	jsonDataY = JSON.parse(localStorage.getItem("greatestY"));
+	
+	imageX = jsonDataX;
+	imageY = jsonDataY;
+	for(var i = 0; i < jsonDataX.length; i++)
+	{
+		var img = new Image();
+		img.src = "assets/drop1.png";
+		
+		content.drawImage(img,jsonDataX[i]-1,jsonDataY[i]);
+	}
 }
