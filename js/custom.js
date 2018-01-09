@@ -143,9 +143,9 @@ function InitaliseCustomiser()
 	if(localStorage.getItem("backgroundImg")  === null)
 		localStorage.setItem("backgroundImg", 1);
 	if(localStorage.getItem("greatestX") === null)
-		localStorage.setItem("greatestX", 2);
+		localStorage.setItem("greatestX", JSON.stringify(imageX));
 	if(localStorage.getItem("greatestY") === null)
-		localStorage.setItem("greatestY", 2);
+		localStorage.setItem("greatestY", JSON.stringify(imageY));
 	
 	Dropdown();
 	SetupCanvas();
