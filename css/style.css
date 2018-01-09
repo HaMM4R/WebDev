@@ -15,6 +15,13 @@ header
 	position:relative;
 }
 
+#logoDrag
+{
+	border-style: solid;
+    border-width: 1px;
+
+}
+
 .logoHolder
 {
 	box-sizing: border-box;

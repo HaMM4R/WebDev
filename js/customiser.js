@@ -6,17 +6,21 @@ var hasDrawn = false;
 var colorWell;
 var color; 
 
-var imageName = [];
+var count = 1;
+var bgImages = new Array(); 
+
+
+//Parallel arrays used to store the user dropped images positions
 var imageX = [];
 var imageY = [];
 
 window.onload = function()
 {
-	//ChooseBackground(1);
-
 	SetupCanvas();
 	AddLogo();
 	ChooseColour();
+	
+	Load();
 }
 
 function SetupCanvas()
@@ -27,43 +31,56 @@ function SetupCanvas()
 	canvas.width = 500;
 	canvas.height = 500;
 	
-	//CHANGE//CHANGE//CHANGE//CHANGE
+	DropImages();
+}
+
+function DropImages()
+{
+	//Gets canvas and offset ready for placement of image
 	var $canvas=$("#canvas");
 	var canvasOffset=$canvas.offset();
 	
 	var offsetX=canvasOffset.left;
 	var offsetY=canvasOffset.top;
 
+	//Creates image to be placed
 	var image1=new Image();
 	image1.src = "assets/drop1.png";
 
-	var $house=$("#house");
+	//Gets the ids for the canvas and the logo image to drop
+	var $logoDrag=$("#logoDrag");
 	var $canvas=$("#canvas");
 
-	$house.draggable({
-		helper:'clone',
-	});
-	// set the data payload
-	$house.data("image",image1); // key-value pair
-
-	$canvas.droppable({
-		drop:dragDrop,
-	});
+	//Makes logo image draggable ready to be dropped
+	$logoDrag.draggable
+	(
+		{
+			helper:'clone',
+		}
+	);
 	
-	function dragDrop(e,ui){
+	$logoDrag.data("image",image1); // key-value pair
+
+	//Makes canvas ready to be dropped onto 
+	$canvas.droppable
+	(
+		{
+			drop:dragDrop,
+		}
+	);
+	
+	//Draws picture to canvas and adds the x and y positions to arrays ready to be saved to local storage
+	function dragDrop(e,ui)
+	{
 		var element=ui.draggable;
 		var data=element.data("url");
 		var x=parseInt(ui.offset.left-offsetX);
 		var y=parseInt(ui.offset.top-offsetY);
-		imageName.push("assets/drop1.png");
 		imageX.push(x);
 		imageY.push(y);
-		content.drawImage(element.data("image"),x-1,y);
-		AddLogo();
+		Redraw();
 	}
 }
-	//CHANGE//CHANGE//CHANGE//CHANGE
-
 
 function AddLogo()
 {
@@ -75,11 +92,8 @@ function AddLogo()
 	}
 }
 
-var count = 1; 
-
 function ChooseBackground(num)
 {
-	var bgImages = new Array();
 	bgImages[1] = 'assets/custom/back0.png'
 	bgImages[0] = 'assets/custom/back1.png'
 	bgImages[2] = 'assets/custom/back2.png'
@@ -104,6 +118,51 @@ function ChooseBackground(num)
 			count = bgImages.length - 1;
 	}
 	
+	Redraw(); 
+
+}
+
+function ChooseColour()
+{
+	colour = document.querySelector("#myColor");
+
+	colour.addEventListener("input", UpdateFirst, false);
+	colour.addEventListener("change", UpdateAll, false);
+}
+
+function UpdateFirst(event)
+{
+	color = event.target.value;
+	Redraw();
+}
+
+function UpdateAll(event)
+{
+	color = event.target.value;
+	Redraw();
+}
+
+function ClearLogo()
+{
+	count = 1; 
+	color = "white";
+	imageX = [];
+	imageY = [];
+	
+	Redraw();
+	Save();
+}
+
+function Redraw()
+{
+	//background colour
+	content.clearRect(0, 0, canvas.width, canvas.height);
+	content.beginPath();
+	content.rect(0, 0, 500, 500);
+	content.fillStyle = localStorage.getItem("backgroundColour");
+	content.fill();
+	
+	//background image
 	if(count != 1)
 	{
 		bgImage = new Image();
@@ -111,70 +170,54 @@ function ChooseBackground(num)
 		bgImage.onload = function()
 		{
 			content.drawImage(bgImage, 0, 0);
-		}
-		
-		for(var i = 0; i < imageName.length; i++)
-		{
-			img = new Image();
-			img.src = "assets/drop1.png";
-			
-				content.drawImage(img,imageX[i]-1,imageY[i]);
-			img.onload = function()
-			{
-				content.drawImage(img,imageX[i]-1,imageY[i]);
-			}
-		}
-		AddLogo();
+		}	
 	}
-	else if(count == 1)
+	
+	for(var i = 0; i < imageX.length; i++)
 	{
-		content.clearRect(0, 0, canvas.width, canvas.height);
-		content.beginPath();
-		content.rect(0, 0, 500, 500);
-		content.fillStyle = color;
-		content.fill();
-		for(var i = 0; i < imageName.length; i++)
+		img = new Image();
+		img.src = "assets/drop1.png";
+		
+		content.drawImage(img,imageX[i]-1,imageY[i]);
+		img.onload = function()
 		{
-			img = new Image();
-			img.src = "assets/drop1.png";
-			
 			content.drawImage(img,imageX[i]-1,imageY[i]);
-			img.onload = function()
-			{
-				content.drawImage(img,imageX[i]-1,imageY[i]);
-			}
 		}
-		AddLogo();
 	}
-
+	
+	base_image = new Image();
+	base_image.src = 'assets/custom/logo.png';
+	base_image.onload = function()
+	{
+		content.drawImage(base_image, (canvas.width / 2) - 150, 380);
+	}
+	
+	Save(); 
 }
 
-function ChooseColour()
+function Save()
 {
-	colorWell = document.querySelector("#myColor");
-
-	colorWell.value = "white";
-	colorWell.addEventListener("input", updateFirst, false);
-	colorWell.addEventListener("change", updateAll, false);
+	if (typeof(localStorage) !== "undefined") 
+	{
+		localStorage.setItem("backgroundColour", color);
+		localStorage.setItem("backgroundImg", count);
+	}
 }
 
-function updateFirst(event)
+function Load()
 {
+	colour.value = localStorage.getItem("backgroundColour");
+	content.clearRect(0, 0, canvas.width, canvas.height);
 	content.beginPath();
 	content.rect(0, 0, 500, 500);
-	color = event.target.value;
-	content.fillStyle = color;
+	content.fillStyle = localStorage.getItem("backgroundColour");
 	content.fill();
-	AddLogo();
-}
-
-function updateAll(event)
-{
-	content.beginPath();
-	content.rect(0, 0, 500, 500);
-	color = event.target.value;
-	content.fillStyle = color;
-	content.fill();
-	ChooseBackground(2);
-	AddLogo();
+	
+	bgImage = new Image();
+	alert(localStorage.getItem("backgroundImg"));
+	bgImage.src = bgImages[localStorage.getItem("backgroundImg")];
+	bgImage.onload = function()
+	{
+		content.drawImage(bgImage, 0, 0);
+	}	
 }
