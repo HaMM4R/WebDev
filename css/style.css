@@ -220,6 +220,14 @@ p
     cursor: pointer;
 }
 
+.customButton
+{
+	margin: 10px 10px 50px 5px;
+	padding: 10px;
+	width: 240px;
+	display: inline; 
+}
+
 .purchaseButton
 {
 	width: 62%;

@@ -1,15 +1,10 @@
-var content; 
-var mouseDown; 
-var lastX;
-var lastY;
-var hasDrawn = false; 
 var slide = 0;
 
 window.onload = function()
 {
 	Dropdown();
 	ShowImages();
-	SetupCanvas();
+	
 }
 
 function Scrolling()
@@ -61,68 +56,4 @@ function Dropdown()
 		 else 
 			nav.className = "TopNav";
 	}));
-}
-
-function SetupCanvas()
-{
-	var canvas = document.getElementById("canvas");
-	content = canvas.getContext('2d')
-	
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	
-	canvas.addEventListener("mousedown", (
-	function(e)
-	{
-		mouseDown = true;
-		
-	}));
-	
-	canvas.addEventListener("mouseup", (
-	function(e)
-	{
-		mouseDown = false;
-		hasDrawn = false;
-		
-	}));
-	
-	canvas.addEventListener("mouseleave", (
-	function(e)
-	{
-		mouseDown = false;
-		hasDrawn = false;
-		
-	}));
-	
-	canvas.addEventListener("mousemove", (
-	function(e)
-	{
-		if(mouseDown)
-		{
-			var x = e.pageX - this.offsetLeft;
-			var y = e.pageY - this.offsetTop;
-			
-			Draw(x, y);
-		}
-	}));
-}
-
-function Draw(x, y)
-{
-	if(!hasDrawn)
-	{
-		lastX = x;
-		lastY = y;
-		hasDrawn = true;
-	}
-	
-	content.beginPath();
-	content.moveTo(lastX, lastY);
-	content.lineTo(x,y);
-	content.stroke();
-	
-	lastX = x;
-	lastY = y;
-	
-	console.log(x,y);
 }

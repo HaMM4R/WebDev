@@ -2,9 +2,14 @@
 <html>
 	<head>
 		<title>Home</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<script src="js/custom.js"></script>
+		
+		<script src="js/customiser.js"></script>
 	</head>
 	
 	<body>
@@ -25,11 +30,27 @@
 				</ul>
 			</nav>
 		</header>
-		<section>
-			<canvas id="canvas" style="border:1px solid #000000;"></canvas>
-		</section>
-		<section>
-			<h1> Customizer </h1>
+		<section><img id="house" width=32 height=32 src="assets/brian1.png">
+			<div class="grid">
+				<div class="row">
+					<div class="col-Desk12">
+						<div class="col">
+							<h1>Design your own greatest hits cover!</h1>
+							<p>Disclaimer! If you change the background picture any additions to the cover you have made will be removed, be sure which background you want before you start!</p>
+							
+							<canvas id="canvas" style="border:1px solid #000000;"></canvas>
+							<br>
+							<h2>Background Image</h2>
+							<button class="homeButton customButton" onclick="ChooseBackground(0)" type="button" href="about.html"><</button>
+							<button class="homeButton customButton" onclick="ChooseBackground(1)" type="button" href="about.html">></button>
+							<br>
+							<h2>Background Colour</h2>
+							<input type="color" id="myColor">
+
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</body>
 </html>
