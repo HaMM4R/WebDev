@@ -15,7 +15,9 @@ var bgImages = new Array();
 
 
 //Parallel arrays used to store the user dropped images positions
+
 var imageX = [];
+
 var imageY = [];
 
 window.onload = function()
