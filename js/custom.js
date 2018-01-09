@@ -331,15 +331,13 @@ function Redraw()
 
 function Save()
 {
-	if (typeof(localStorage) !== "undefined") 
-	{
-		localStorage.setItem("backgroundColour", color);
-		localStorage.setItem("backgroundImg", count);
-		alert(imageX);
-		alert(imageY);
-		localStorage.setItem("greatestX", JSON.stringify(imageX));
-		localStorage.setItem("greatestY", JSON.stringify(imageY));
-	}
+	localStorage.setItem("backgroundColour", color);
+	localStorage.setItem("backgroundImg", count);
+	alert(imageX);
+	alert(imageY);
+	localStorage.setItem("greatestX", JSON.stringify(imageX));
+	localStorage.setItem("greatestY", JSON.stringify(imageY));
+	
 }
 
 var jsonDataX
