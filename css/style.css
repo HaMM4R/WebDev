@@ -169,6 +169,8 @@ adds padding to move it below the nav bar and a background colour for transparen
 	left: 50%;
 	transform: translate(-50%, 0);
 	padding-top: 50px;
+	border-width: 0px;
+
 }
 
 /* Close Button */

@@ -394,7 +394,7 @@ function loadBox(modalSelect)
 	modal.style.display = "block";
 }
 
-function closeBox(modalSelect)
+function closeBox()
 {
 	window.location = "discography.html";
 }
