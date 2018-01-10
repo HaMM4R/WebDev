@@ -141,27 +141,8 @@ p
 	clear: both;
 }
 
-
-[class*='col-']
-{
-	width: 100%;
-	float: left;
-	min-height: 1px;
-}
-
-.col 
-{
-	padding: 1em;
-	margin: 4px;
-	border-radius: 3px;
-	text-align: center;
-}
-
-.colArticle
-{
-	text-align: left;
-}
-	
+/* Modal box stuff, sets the display to none by default so they don't show when page is loaded, sets the position to fixed so they don't move when the user scrolls,
+adds padding to move it below the nav bar and a background colour for transparency and takes up the whole of the rest of the screen*/
 .modal {
     display: none; 
     position: fixed; 
@@ -173,7 +154,7 @@ p
     background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content */
+/* Sets the position to relative so it can be moved around in the main page space without covering everything up, only takes up 80% of screen*/
 .modal-content {
 	position: relative; 
     background-color: #fefefe;
@@ -190,7 +171,7 @@ p
 	padding-top: 50px;
 }
 
-/* The Close Button */
+/* Close Button */
 .close {
     color: #aaaaaa;
     float: right;
@@ -237,6 +218,29 @@ p
 .purchaseButton
 {
 	width: 62%;
+}
+
+/*CSS Grid, used in order to position essentially all elements within the website, uses different classes for each media query, 
+I can inherit 3 classes in each div using the grid so that when a media query is called it changes to use a different class and 
+therefore change the width an element takes up based on the resolution*/
+[class*='col-']
+{
+	width: 100%;
+	float: left;
+	min-height: 1px;
+}
+
+.col 
+{
+	padding: 1em;
+	margin: 4px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.colArticle
+{
+	text-align: left;
 }
 
 @media screen and (min-width:320px)
@@ -307,6 +311,7 @@ p
 	
 }
 
+/*Used in order to display and show the drop down nav bar when the resolution goes above 960px.*/
 @media screen and (max-width: 960px) 
 {
 	.TopNav

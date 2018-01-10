@@ -65,24 +65,25 @@ function Dropdown()
 function GetLocation() 
 {
 	Dropdown();
-    if (navigator.geolocation) {
+	//uses the google API to get user position 
+    if (navigator.geolocation)
         navigator.geolocation.getCurrentPosition(MyMap);
-    } else { 
-       map();
-    }
 }
 
+//used for geo location 
 function MyMap(position) 
 {
+	//Saves variables for for longitute and latitude
 	var lat =  position.coords.latitude;
 	var longi = position.coords.longitude;
-	var myCenter = new google.maps.LatLng(lat, longi);
+	var myCenter = new google.maps.LatLng(lat, longi);				//Works out center of the user displayed map
 	var mapCanvas = document.getElementById("googleMap");
-	var mapOptions = {center: myCenter, zoom: 5};
-	var map = new google.maps.Map(mapCanvas, mapOptions);
-	var marker = new google.maps.Marker({position:myCenter});
+	var mapOptions = {center: myCenter, zoom: 5};					//Sets the center and the zoom level of the map
+	var map = new google.maps.Map(mapCanvas, mapOptions);			//Displays the map
+	var marker = new google.maps.Marker({position:myCenter});		//Displays the marker
 	marker.setMap(map);
 	
+	//Adds markers for nearby arenas 
 	var markerO2 = new google.maps.Marker
 	(
 		{
@@ -129,18 +130,10 @@ function MyMap(position)
 	markerBirmingham.setMap(map);
 }
 
-function map()
-{
-	var mapProp = {
-		center:new google.maps.LatLng(51.508742,-0.120850),
-		zoom:5,
-	};
-	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-
 //Customiser
 function InitaliseCustomiser()
 {
+	//Makes sure to give localStorage a value for the first time a user loads the page to prevent errors with the customiser 
 	if(localStorage.getItem("backgroundColour") === null)
 		localStorage.setItem("backgroundColour", "white");
 	if(localStorage.getItem("backgroundImg")  === null)
@@ -153,6 +146,7 @@ function InitaliseCustomiser()
 	Dropdown();
 	SetupCanvas();
 	
+	//Adds images to array ready for use in background
 	bgImages[1] = 'assets/custom/back0.png'
 	bgImages[2] = 'assets/custom/back2.png'
 	bgImages[3] = 'assets/custom/back3.png'
@@ -163,6 +157,7 @@ function InitaliseCustomiser()
 		
 	Load();
 	
+	//Event listener to change the background on click
 	$('.customButton').click(function(e)
 	{
 		var id = $(this).data('id');
@@ -170,6 +165,7 @@ function InitaliseCustomiser()
 	});
 }
 
+//Sets up size for the canvas
 function SetupCanvas()
 {
 	var canvas = document.getElementById("canvas");
@@ -229,6 +225,7 @@ function DropImages()
 	}
 }
 
+//Draws logo onto the canvas
 function AddLogo()
 {
 	base_image = new Image();
@@ -238,7 +235,7 @@ function AddLogo()
 		content.drawImage(base_image, (canvas.width / 2) - 150, 380);
 	}
 }
-
+//sets the index value to be later used in displaying the background image in canvas
 function ChooseBackground(num)
 {
 	if(num != 2)
@@ -263,6 +260,7 @@ function ChooseBackground(num)
 
 }
 
+//Calls event listens to check for colour changes
 function ChooseColour()
 {
 	colour = document.querySelector("#myColor");
@@ -283,6 +281,7 @@ function UpdateAll(event)
 	Redraw();
 }
 
+//Clears out the canvas of all content
 function ClearLogo()
 {
 	count = 1; 
@@ -294,6 +293,7 @@ function ClearLogo()
 	Save();
 }
 
+//Used to draw all content to the canvas
 function Redraw()
 {
 	//background colour
@@ -314,6 +314,7 @@ function Redraw()
 		}	
 	}
 	
+	//Draws out all of the user placed greatest hits images
 	for(var i = 0; i < imageX.length; i++)
 	{
 		var img = new Image();
@@ -322,6 +323,7 @@ function Redraw()
 		content.drawImage(img,imageX[i]-1,imageY[i]);
 	}
 	
+	//Draws out the queen logo
 	base_image = new Image();
 	base_image.src = 'assets/custom/logo.png';
 	base_image.onload = function()
@@ -332,15 +334,18 @@ function Redraw()
 	Save(); 
 }
 
+//Saves elements in local storage for the background colour, background image, x and y positions of user placed images. 
 function Save()
 {
 	localStorage.setItem("backgroundColour", color);
 	localStorage.setItem("backgroundImg", count);
+	
 	localStorage.setItem("greatestX", JSON.stringify(imageX));
 	localStorage.setItem("greatestY", JSON.stringify(imageY));
 	
 }
 
+//Loads in and redraws all of the data when page is reloaded
 var jsonDataX
 var jsonDataY
 function Load()
