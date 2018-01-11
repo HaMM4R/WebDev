@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Links for javascript and css files-->
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<script src="js/js.js"></script>
+		
+	</head>
+	
+	<body>
+		<!--Header contains the nav bar as well as the logo for the page-->
+		<header>
+			<div class="logoHolder">
+				<a href="index.html">
+					<img src="assets/Logo.png" alt="logo" id="logo"/>
+				</a>
+			</div>
+			<nav class="TopNav" id="topNav">
+				<ul>
+					<li class="icon"><a href="#open" id="navClick">&#9776;</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="discography.html">Discography</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="tour.html">Tours</a></li>
+					<li><a href="shop.html">Shop</a></li>
+					<li><a href="log.html">Log</a></li>
+					<li><a href="demo.html">Demo</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<div class="grid gridArticle">
+				<div class="row">
+					<div class="col-Desk12">
+						<div class="col">
+							<h1>Critical Log</h1>
+							<h2>Interoperability</h2>
+							<p>Interoperability is an important thing to keep in mind when developing a website. It was important that the site be useable on both mobile and desktop devices with minimal issue. It was decided that using a 
+							CSS grid system would be the best way to achieve this, with elements taking up a different number of columns based on the resolution of the display. This was achieved using media queries and (as seen in the browser
+							compatibility screenshots) results in elements being shifted in to accommodate mobile devices. Another example of this would be the navigation bar changing to a dropdown menu when the resolution drops too low. This
+							was important so that users could make use of the site on any device. The website has also been tested on multiple browsers, including Google Chrome, Mozilla Firefox, Internet Explorer and Microsoft Edge. All functionality 
+							of the website works on these browsers, however an issue between browsers occurred when using a filter to invert the colours on the Brian May logo on internet explorer. Using vendor specific prefixes was attempted to correct 
+							this issue however no solution was found.</p>
+							<h2>Challenges Presented</h2>
+							<p>Originally when attempting to make the website responsive, a CSS grid was not implemented. This made the positioning of elements within the page very awkward. Implementing CSS grid made positioning these elements much 
+							easier. </p>
+							<h2>Techniques Used</h2>
+							<p>Various techniques have been applied to ensure the website is as functional as possible. For example, the use of JavaScript for things like modal boxes, JQuery for drag and drop functionality for the customiser and local storage
+							to save a canvas ready for being loaded. JSON was used for this in order to stringify two arrays (for X and Y positions) of the user dragged and drop “Greatest Hits” text. </p>
+							<h2>Strengths and Weaknesses of Current Web Standards</h2>
+							<p>Newer web standards allow for content that would have not been possible before. An example of this would be the addition of canvas elements in HTML5 which were not present in HTML4. This was greatly important to the development of
+							the site as it allowed for the creation of the customiser. This kind of functionality would have been very difficult to achieve using HTML4, especially without the use of external libraries. HTML5 semantic tags such as header, footer 
+							and nav have made it easier for developers to interpret the code written for a page. It helps to outline what sections of the mark-up are used for and helps with searchability and reduces the amount of div’s required for a website. 
+							Updating the web standards means that certain tags and attributes are no longer valid. This could become an issue for developers as it means they will have to invest time and resources into changing their websites for the new standards.
+							For example center tags have been removed and elements now require to be centered through CSS. </p>
+							<p>Following web standards in general does have it’s merits, interoperability being a large one, as well as making it easy for developers to understand other developers code, however it does mean that developers must pay much more attention 
+							to how they are programming their websites, potentially taking more time for development and requiring more skill to develop validated websites. </p>
+							<h2>Best Practises</h2>
+							<p>Upholding good practises is essential in ensuring the website will be future proof and easy to maintain. Validating the html and CSS of a website will increase the chances of a website will work on future versions of browser (as they will be 
+							designed with the W3C web standards in mind) and by validating the code for the website these standards are met. This will also greatly increase the chances of successful interoperability between various browsers. Due to these standards being 
+							understood as best practise by most developers, programming a website with these standards in mind make it easier for other developers to understand the website code. Things such as the structure of the html was also kept in mind to make the code
+							easy to read, as well as keeping the file structure clear and logical. Most of the issues flagged by W3C were for using buttons to aid in navigation instead of using <a> tags. This was done mostly for the purpose of easier styling. Making sure that 
+							the code is consistent is also greatly important, this was achieved by typing variable names using camelCase and method names using PascalCase. The website is also compatible with most popular browsers, mostly without issue. In terms of design the
+							website is consistent throughout, using google fonts and following design choices made by many popular websites, things like including the logo in the top left of the navigation bar.  </p>
+							<h2>Browser Compatibility </h2>
+							<h2>Google Chrome</h2>
+							<img src="assets/log/1.png" class="articleImg" alt=""/>
+							<img src="assets/log/2.png" class="articleImg" alt=""/>
+							<img src="assets/log/3.png" class="articleImg" alt=""/>
+							<h2>Firefox</h2>
+							<img src="assets/log/4.png" class="articleImg" alt=""/>
+							<img src="assets/log/5.png" class="articleImg" alt=""/>
+							<img src="assets/log/6.png" class="articleImg" alt=""/>
+							<h2>Internet Explorer</h2>
+							<img src="assets/log/7.png" class="articleImg" alt=""/>
+							<img src="assets/log/8.png" class="articleImg" alt=""/>
+							<img src="assets/log/9.png" class="articleImg" alt=""/>
+							<h2>W3 Validation</h2>
+							<h2>Index.html</h2>
+							<img src="assets/log/10.png" class="articleImg" alt=""/>
+							<h2>About.html</h2>
+							<img src="assets/log/11.png" class="articleImg" alt=""/>
+							<h2>Discograpgy.html</h2>
+							<img src="assets/log/12.png" class="articleImg" alt=""/>
+							<h2>Gallery.html</h2>
+							<img src="assets/log/13.png" class="articleImg" alt=""/>
+							<h2>Tour.html</h2>
+							<img src="assets/log/14.png" class="articleImg" alt=""/>
+							<h2>Shop.html</h2>
+							<img src="assets/log/15.png" class="articleImg" alt=""/>
+							<h2>Custom.html</h2>
+							<img src="assets/log/16.png" class="articleImg" alt=""/>
+							<h2>Item1.html</h2>
+							<img src="assets/log/17.png" class="articleImg" alt=""/>
+							<h2>Item2.html</h2>
+							<img src="assets/log/18.png" class="articleImg" alt=""/>
+							<h2>Item3.html</h2>
+							<img src="assets/log/19.png" class="articleImg" alt=""/>
+							<h2>Article1.html</h2>
+							<img src="assets/log/20.png" class="articleImg" alt=""/>
+							<h2>Article2.html</h2>
+							<img src="assets/log/21.png" class="articleImg" alt=""/>
+							<h2>Article3.html</h2>
+							<img src="assets/log/22.png" class="articleImg" alt=""/>
+							<h2>CSS</h2>
+							<img src="assets/log/23.png" class="articleImg" alt=""/>
+							<h2>File Structure</h2>
+							<h2>Root</h2>
+							<img src="assets/log/24.png" class="articleImg" alt=""/>
+							<h2>Assets</h2>
+							<img src="assets/log/25.png" class="articleImg" alt=""/>
+							<h2>Article1</h2>
+							<img src="assets/log/26.png" class="articleImg" alt=""/>
+							<h2>Article2</h2>
+							<img src="assets/log/27.png" class="articleImg" alt=""/>
+							<h2>Article3</h2>
+							<img src="assets/log/28.png" class="articleImg" alt=""/>
+							<h2>Custom</h2>
+							<img src="assets/log/29.png" class="articleImg" alt=""/>
+							<h2>Discography</h2>
+							<img src="assets/log/30.png" class="articleImg" alt=""/>
+							<h2>Gallery</h2>
+							<img src="assets/log/31.png" class="articleImg" alt=""/>
+							<h2>Shop</h2>
+							<img src="assets/log/32.png" class="articleImg" alt=""/>
+							<h2>CSS</h2>
+							<img src="assets/log/33.png" class="articleImg" alt=""/>
+							<h2>JS</h2>
+							<img src="assets/log/34.png" class="articleImg" alt=""/>
+							<h2>Mark-up Structure</h2>
+							<img src="assets/log/35.png" class="articleImg" alt=""/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+	</body>
+</html>
