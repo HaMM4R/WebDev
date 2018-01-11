@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Links all CSS and javascript files -->
 		<title>Home</title>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<script src="js/custom.js"></script>
+		<script src="js/js.js"></script>
 	</head>
 	
+	<!-- On load is used here instead of method being called from onload in JS as to only call the method from this page and not cause errors -->
 	<body onload="InitaliseCustomiser()">
+		<!-- Contains logo and nav bar-->
 		<header>
 			<div class="logoHolder">
 				<a href="index.html">
@@ -32,6 +35,7 @@
 		<section>
 			<div class="grid">
 				<div class="row">
+					<!-- Takes up 100% view width on any device -->
 					<div class="col-Desk12">
 						<div class="col">
 							<h1>Design your own greatest hits cover!</h1>
@@ -39,6 +43,7 @@
 							
 							<canvas id="canvas" style="border:1px solid #000000;"></canvas>
 							<br>
+							<!--Data-id use in order for the javascript to know whether to scroll images left or right-->
 							<h2>Background Image</h2>
 							<button data-id="0" class="homeButton customButton"  type="button">&lt;</button>
 							<button data-id="1" class="homeButton customButton"  type="button">></button>

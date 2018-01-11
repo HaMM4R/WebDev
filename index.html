@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Links for the javascript and css files -->
 		<title>Home</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<script src="js/custom.js"></script>
+		<script src="js/js.js"></script>
 	</head>
 	
+	<!-- Javascript method called inline instead of in the onload in the javscript file as this method only applies to this page and errors would be thrown otherwise-->
 	<body onload="ShowImages()">
 		<header>
+			<!-- Contains nav bar and logo-->
 			<div class="logoHolder">
 				<a href="index.html">
 					<img src="assets/Logo.png" id="logo"/>
 				</a>
 			</div>
+			<!-- ID's and class given in order to change the nav bar to the drop down when in mobile view-->
 			<nav class="TopNav" id="topNav">
 				<ul>
 					<li class="icon"><a href="#open" id="navClick">&#9776;</a></li>
@@ -27,10 +31,12 @@
 			</nav>
 		</header>
 		<section>
+			<!-- CSS grid used in order to position elements-->
 			<div class="grid">
 				<div class="row">
 					<div class="col-Desk12">
 						<div class="col">
+							<!-- Images will be hidden by default and shown one by one like a slideshow-->
 							<img class="images" src="assets/brian1.png"/>
 							<img class="images" src="assets/brian2.png"/>
 							<img class="images" src="assets/brian3.png"/>
@@ -40,6 +46,7 @@
 							<p>Welcome to the official Brian May website!</p>
 						</div>
 					</div>
+					<!-- Each of the below elements will take up a 3rd of the view width on desktop and the whole width on mobile-->
 					<div class="col-Desk4 col-Mob12 col-Tab12">
 						<div class="col">
 							<h2>News of the World Reissue</h2>

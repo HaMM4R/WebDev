@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+	<!--Used to link CSS and Javascript-->
 	<head>
 		<title>Home</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<script src="js/custom.js"></script>
+		<script src="js/js.js"></script>
 	</head>
 	
 	<body>
+		<!-- Contains nav bar and logo-->
 		<header>
 			<div class="logoHolder">
 				<a href="index.html">
@@ -35,6 +37,7 @@
 							<p>Click on one of the images below to read some information about that specific album</p>
 						</div>
 					</div>
+					<!-- All images take up a third of the view width on desktop and the whole width on mobile -->
 					<div class="col-Desk4 col-Mob12 col-Tab12">
 						<div class="col">
 							<a href="#" onclick="loadBox('queen')"><img src="assets/discography/queen.png" alt="" class="discographyImg"/></a>
@@ -122,6 +125,7 @@
 				</div>
 			</div>
 			
+			<!--Code for modal boxes with id's matching the parameters sent to the javascript from the images when clicked so the correct modal opens-->
 			<div id="queen" class="modal">
 			  <div class="modal-content">
 				<span class="close" onclick="closeBox()">&times;</span>
