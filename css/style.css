@@ -143,7 +143,8 @@ p
 
 /* Modal box stuff, sets the display to none by default so they don't show when page is loaded, sets the position to fixed so they don't move when the user scrolls,
 adds padding to move it below the nav bar and a background colour for transparency and takes up the whole of the rest of the screen*/
-.modal {
+.modal 
+{
     display: none; 
     position: fixed; 
     padding-top: 150px; 
@@ -155,12 +156,14 @@ adds padding to move it below the nav bar and a background colour for transparen
 }
 
 /* Sets the position to relative so it can be moved around in the main page space without covering everything up, only takes up 80% of screen*/
-.modal-content {
+.modal-content 
+{
 	position: relative; 
     background-color: #fefefe;
     padding: 20px;
     margin: auto;
     width: 80%;
+	border-radius: 8px;
 }
 
 .popupVid
@@ -174,15 +177,16 @@ adds padding to move it below the nav bar and a background colour for transparen
 }
 
 /* Close Button */
-.close {
+.close 
+{
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover
+{
     color: #000;
     text-decoration: none;
     cursor: pointer;
